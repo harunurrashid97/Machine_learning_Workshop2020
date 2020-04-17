@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+
+	<header>
+		<div class="container">
+		<div id="brandname">
+		</div>
+		<h2>Fruit Detector ML App</h2>
+
+	</div>
+	</header>
+	<p style="color:blue;font-size:20;text-align: center;"><b>Results for Fruit Detector </b></p>
+  <div class="results">
+
+      {% if prediction_text == 1%}
+      <h2 style="color:red;">Fruit name should be Apple</h2>
+      {% elif prediction_text == 2%}
+      <h2 style="color:yellow;">Fruit name should be Mandarin</h2>
+      {% elif prediction_text == 3%}
+      <h2 style="color:white;">Fruit name should be Orange</h2>
+      {% elif prediction_text == 4%}
+      <h2 style="color:yellow;">Fruit name should be Lemon</h2>
+      {% endif %}
+
+    </div>
+
+</body>
+</html>
