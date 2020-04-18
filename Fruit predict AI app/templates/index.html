@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Fruit Prediction AI APP</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+
+</head>
+
+<body>
+  <div class="login">
+    <h1>Predict Fruit Using AI</h1>
+
+    <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}" method="post">
+      <label for="first_name"><b>Mass of Fruit</b></label>
+      <br>
+      <input type="text" name="mass" placeholder="Mass of Fruit" required="required" />
+      <label for="last_name"><b>Width of Fruit</b></label>
+      <br>
+      <input type="text" name="width" placeholder="Width of Fruit" required="required" />
+      <label for="_name"><b>Height of Fruit</b></label>
+      <br>
+      <input type="text" name="height" placeholder="Height of Fruit" required="required" />
+
+      <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+    <br>
+    <br>
+
+    <div class="results">
+      {% if prediction_text == 1%}
+      <h2 style="color:yellow">Fruit name should be Apple</h2>
+      {% elif prediction_text == 2%}
+      <h2 style="color:yellow">Fruit name should be Mandarin</h2>
+      {% elif prediction_text == 3%}
+      <h2 style="color:yellow">Fruit name should be Orange</h2>
+      {% elif prediction_text == 4%}
+      <h2 style="color:yellow">Fruit name should be Lemon</h2>
+      {% endif %}
+
+    </div>
+
+  </div>
+
+
+</body>
+
+</html>
